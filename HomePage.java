@@ -15,7 +15,7 @@ public class HomePage
           System.out.println("3. Profile Page");
           System.out.println("4. Settings");
           System.out.println("5. Logout");
-          System.out.pring("Enter your choice(1-5): ");
+          System.out.print("Enter your choice(1-5): ");
 
           int choice = sc.nextInt();
           running = nav.navigation(choice);
