@@ -1,0 +1,8 @@
+Rhythmix Homepage and Navigation - Sai Sanjana Thota
+
+This Java prgram represents the homepage and navigation for our CS1200 project Rhythmix, an AI lyric generator for music artists. 
+
+- HomePage.java: Displays the main homepage after logi, greeting the user and offereing navigation options. 
+- Navigation.java: Handles the logic for user selections, such as generating lyrics, viewing saved work, opening the profile, adjusting settings, and logging out. 
+
+The program ensures a smooth and simple user experience that clearly connects all major features of the Rhythmix app. 
