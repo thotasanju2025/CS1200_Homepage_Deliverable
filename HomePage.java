@@ -4,6 +4,9 @@ public class HomePage
   {
     public static void main(String[] args)
     {
+      Scanner sc = new Scanner(System.in);
+      Navigation nav = new Navigation();
+      
       System.out.println("Welcome to Rythmix - an AI lyrics Generator");
 
       boolean running = true;
