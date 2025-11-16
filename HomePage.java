@@ -1,28 +1,37 @@
-import java.util.Scanner;
+import javax.swing.*;
+import java.awt.*;
 
-public class HomePage
-  {
-    public static void main(String[] args)
-    {
-      Scanner sc = new Scanner(System.in);
-      Navigation nav = new Navigation();
-      
-      System.out.println("Welcome to Rythmix - an AI lyrics Generator");
+public class HomePageGUI {
 
-      boolean running = true;
-      while(running)
-        {
-          System.out.println("Please choose an option: ");
-          System.out.println("1. Generate New Lyrics");
-          System.out.println("2. View Saved Lyrics");
-          System.out.println("3. Profile Page");
-          System.out.println("4. Settings");
-          System.out.println("5. Logout");
-          System.out.print("Enter your choice(1-5): ");
+    public static void main(String[] args) {
 
-          int choice = sc.nextInt();
-          running = nav.navigation(choice);
-        }
-      sc.close();
+        JFrame frame = new JFrame("Rhythmix — Homepage");
+        frame.setSize(400, 500);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(new GridLayout(6, 1, 10, 10));
+
+        JLabel title = new JLabel("🎵 Rhythmix — AI Lyric Generator 🎵", SwingConstants.CENTER);
+        frame.add(title);
+
+        JButton generateBtn = new JButton("Generate Lyrics");
+        JButton savedBtn = new JButton("Saved Lyrics");
+        JButton profileBtn = new JButton("Profile Page");
+        JButton settingsBtn = new JButton("Settings");
+        JButton logoutBtn = new JButton("Logout");
+
+        frame.add(generateBtn);
+        frame.add(savedBtn);
+        frame.add(profileBtn);
+        frame.add(settingsBtn);
+        frame.add(logoutBtn);
+
+        // Navigation
+        generateBtn.addActionListener(e -> new LyricGeneratorGUI());
+        savedBtn.addActionListener(e -> new SavedLyricsGUI());
+        profileBtn.addActionListener(e -> new ProfileGUI());
+        settingsBtn.addActionListener(e -> new SettingsGUI());
+        logoutBtn.addActionListener(e -> System.exit(0));
+
+        frame.setVisible(true);
     }
-  }
+}
