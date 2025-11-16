@@ -1,31 +1,29 @@
-public class Navigation 
-{
-  public boolean navigate(int choice)
-  {
-    switch(choice)
-      {
-        case 1: 
-          System.out.println("Opening Lyric Generator..");
-          System.out.println("Users can enter text, select genre, length, and language here.");
-          break;
-        case 2:
-          System.out.println("Opening Saved lyrics...");
-          System.out.println("Users can view and edit previously generated lyrics.");
-          break;
-        case 3:
-          System.out.println("Opening Profile Page");
-          system.out.println("Display users info and preference.");
-          break;
-        case 4:
-          System.out.println("Opening Settings");
-          System.out.println("Users can adjust account or app settings.");
-          break;
-        case 5:
-          System.out.println("Logging out... Goodbye!!");
-          return false;
-        default:
-          System.out.println("Invalid option. Please try again.");
-      }
-    return true; 
-  }
+import javax.swing.*;
+import java.awt.*;
+
+public class SettingsGUI {
+
+    public SettingsGUI() {
+
+        JFrame frame = new JFrame("Rhythmix — Settings");
+        frame.setSize(400, 400);
+        frame.setLayout(new GridLayout(4, 1, 10, 10));
+
+        JCheckBox darkMode = new JCheckBox("Dark Mode");
+        JButton account = new JButton("Account Settings");
+        JButton about = new JButton("About");
+        JButton back = new JButton("Back");
+
+        frame.add(darkMode);
+        frame.add(account);
+        frame.add(about);
+        frame.add(back);
+
+        about.addActionListener(e -> JOptionPane.showMessageDialog(frame,
+                "Rhythmix v1.0\nCreated for CS 1200 Project.")
+        );
+        back.addActionListener(e -> frame.dispose());
+
+        frame.setVisible(true);
+    }
 }
