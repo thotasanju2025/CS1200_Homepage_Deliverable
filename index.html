@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Rythmix - AI Lyric Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>Rythmix</h1>
+    <p class="tagline">AI-powered lyric ideas for music creators</p>
+  </header>
+
+  <main class="app-main">
+    <nav class="menu">
+      <button data-view="home" class="menu-btn active">Home</button>
+      <button data-view="generate" class="menu-btn">Generate New Lyrics</button>
+      <button data-view="saved" class="menu-btn">View Saved Lyrics</button>
+      <button data-view="profile" class="menu-btn">Profile</button>
+      <button data-view="settings" class="menu-btn">Settings</button>
+      <button data-view="logout" class="menu-btn menu-btn--danger">Logout</button>
+    </nav>
+
+    <section id="view-container" class="view-container">
+      <!-- Views are injected here by app.js -->
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <small>CS 1200 • Rythmix Homepage &amp; Navigation • Sai Sanjana Thota</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
