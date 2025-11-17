@@ -8,7 +8,7 @@ const state = {
   savedLyrics: JSON.parse(localStorage.getItem("rythmix_saved_lyrics") || "[]"),
 };
 
-// --- Helper to render views ---
+// --- Helpers ---
 const viewContainer = document.getElementById("view-container");
 const menuButtons = document.querySelectorAll(".menu-btn");
 
@@ -65,22 +65,10 @@ function renderHome() {
       <li>Generate new lyric ideas</li>
       <li>View your saved lyrics</li>
       <li>Update your profile</li>
-      <li>Adjust simple settings</li>
+      <li>Adjust basic settings</li>
       <li>Logout when you're done</li>
     </ul>
   `;
-}
-
-input[type="text"],
-textarea,
-select {
-  width: 100%;
-  padding: 0.5rem 0.6rem;
-  border-radius: 0.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgba(3, 6, 15, 0.95);
-  color: #f5f5f5;
-  resize: vertical;
 }
 
 function renderGenerate() {
@@ -172,13 +160,13 @@ function renderGenerate() {
       JSON.stringify(state.savedLyrics)
     );
 
+    // Clear fields
     promptEl.value = "";
     lyricsEl.value = "";
 
     alert("Lyrics saved!");
   });
 }
-
 
 function renderSaved() {
   if (state.savedLyrics.length === 0) {
@@ -193,7 +181,9 @@ function renderSaved() {
     .map(
       (entry) => `
       <li>
-        <span>${entry.createdAt} • Prompt: ${entry.prompt}</span>
+        <span>${entry.createdAt}</span>
+        <span>Genre: ${entry.genre} • Language: ${entry.language} • Length: ${entry.length}</span>
+        <span>Prompt: ${entry.prompt}</span>
         <pre>${entry.lyrics}</pre>
       </li>
     `
