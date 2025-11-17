@@ -71,13 +71,59 @@ function renderHome() {
   `;
 }
 
+input[type="text"],
+textarea,
+select {
+  width: 100%;
+  padding: 0.5rem 0.6rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(3, 6, 15, 0.95);
+  color: #f5f5f5;
+  resize: vertical;
+}
+
 function renderGenerate() {
   viewContainer.innerHTML = `
     <h2>Generate New Lyrics</h2>
     <p>
       Imagine this is where your AI model would generate lyrics.
-      For now, you can type your own and "save" them.
+      For now, you can choose options and type your own lyrics, then "save" them.
     </p>
+
+    <div class="form-group">
+      <label for="genre">Genre</label>
+      <select id="genre">
+        <option value="Pop">Pop</option>
+        <option value="Hip-Hop">Hip-Hop</option>
+        <option value="Rock">Rock</option>
+        <option value="R&B">R&amp;B</option>
+        <option value="Country">Country</option>
+        <option value="EDM">EDM</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="language">Language</label>
+      <select id="language">
+        <option value="English">English</option>
+        <option value="Spanish">Spanish</option>
+        <option value="Hindi">Hindi</option>
+        <option value="Telugu">Telugu</option>
+        <option value="Tamil">Tamil</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="length">Length</label>
+      <select id="length">
+        <option value="Short (4 lines)">Short (4 lines)</option>
+        <option value="Medium (8–12 lines)">Medium (8–12 lines)</option>
+        <option value="Full song (16+ lines)">Full song (16+ lines)</option>
+      </select>
+    </div>
 
     <div class="form-group">
       <label for="prompt">Mood or prompt</label>
@@ -93,9 +139,15 @@ function renderGenerate() {
   `;
 
   document.getElementById("saveLyricsBtn").addEventListener("click", () => {
+    const genreEl = document.getElementById("genre");
+    const languageEl = document.getElementById("language");
+    const lengthEl = document.getElementById("length");
     const promptEl = document.getElementById("prompt");
     const lyricsEl = document.getElementById("lyrics");
 
+    const genre = genreEl.value;
+    const language = languageEl.value;
+    const length = lengthEl.value;
     const prompt = promptEl.value.trim();
     const lyrics = lyricsEl.value.trim();
 
@@ -106,6 +158,9 @@ function renderGenerate() {
 
     const entry = {
       id: Date.now(),
+      genre,
+      language,
+      length,
       prompt: prompt || "(no prompt provided)",
       lyrics,
       createdAt: new Date().toLocaleString(),
@@ -123,6 +178,7 @@ function renderGenerate() {
     alert("Lyrics saved!");
   });
 }
+
 
 function renderSaved() {
   if (state.savedLyrics.length === 0) {
