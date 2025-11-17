@@ -103,6 +103,11 @@ body {
   color: #d9ddff;
 }
 
+.view-container ul {
+  margin-left: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
 .form-group {
   margin-bottom: 0.9rem;
 }
@@ -162,6 +167,12 @@ textarea {
   font-size: 0.85rem;
   color: #b1b6ff;
   margin-bottom: 0.25rem;
+}
+
+.saved-list li pre {
+  white-space: pre-wrap;
+  font-size: 0.9rem;
+  color: #f5f5f5;
 }
 
 .app-footer {
